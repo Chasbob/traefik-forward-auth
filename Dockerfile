@@ -7,6 +7,10 @@ WORKDIR /go/src/github.com/thomseddon/traefik-forward-auth
 # Add libraries
 RUN apk add --no-cache git
 
+ADD go.mod /go/src/github.com/thomseddon/traefik-forward-auth/
+ADD go.sum /go/src/github.com/thomseddon/traefik-forward-auth/
+RUN go mod download
+
 # Copy & build
 ADD . /go/src/github.com/thomseddon/traefik-forward-auth/
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -a -installsuffix nocgo -o /traefik-forward-auth github.com/thomseddon/traefik-forward-auth/cmd
