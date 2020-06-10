@@ -10,6 +10,7 @@ import (
 // Providers contains all the implemented providers
 type Providers struct {
 	Google Google `group:"Google Provider" namespace:"google" env-namespace:"GOOGLE"`
+	Slack  Slack  `group:"Slack Provider" namespace:"slack" env-namespace:"SLACK"`
 	OIDC   OIDC   `group:"OIDC Provider" namespace:"oidc" env-namespace:"OIDC"`
 }
 
