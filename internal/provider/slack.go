@@ -154,7 +154,8 @@ func (g *Slack) GetUser(token string) (User, error) {
 	log.Info("[GetUser] bodyStrin=", bodyString)
 	err = json.NewDecoder(strings.NewReader(bodyString)).Decode(&identity_response)
 	log.Info("[GetUser] identity_response=", identity_response)
-	user.Email = g.CompiledNameRegex.ReplaceAllString(identity_response.User.Name, g.SubstitutionChar)
+	user.Email = identity_response.User.Email
+	// user.Email = g.CompiledNameRegex.ReplaceAllString(identity_response.User.Name, g.SubstitutionChar)
 	user.ID = identity_response.User.ID
 	user.Verified = true
 	log.Info("[GetUser] user=", user)
