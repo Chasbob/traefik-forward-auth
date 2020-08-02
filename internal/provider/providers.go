@@ -31,6 +31,7 @@ type token struct {
 type User struct {
 	ID       string `json:"id"`
 	Email    string `json:"email"`
+	Name     string `json:"name"`
 	Verified bool   `json:"verified_email"`
 	Hd       string `json:"hd"`
 }
