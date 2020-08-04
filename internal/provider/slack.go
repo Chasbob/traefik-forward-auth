@@ -41,7 +41,7 @@ func (s *Slack) Setup() error {
 	}
 
 	// Set static values
-	s.Scope = "identity.basic"
+	s.Scope = "identity.basic identity.email"
 	s.LoginURL = &url.URL{
 		Scheme: "https",
 		Host:   "slack.com",
